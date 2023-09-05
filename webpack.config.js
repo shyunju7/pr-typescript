@@ -22,6 +22,20 @@ module.exports = {
           loader: "ts-loader",
         },
       },
+      {
+        test: /\.scss$/,
+        use: ["style-loader", "css-loader", "sass-loader"],
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg|webp)$/i,
+        use: {
+          loader: "file-loader",
+          options: {
+            name: "[name].[contenthash].[ext]",
+          },
+        },
+      },
     ],
   },
   plugins: [
