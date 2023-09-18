@@ -1,0 +1,89 @@
+@import "../../sass/abstracts/variables.scss";
+
+.select-wrapper {
+  width: 100%;
+  max-width: 300px;
+}
+
+.select-label {
+  position: relative;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  line-height: 2.25rem;
+  border-radius: 0.5rem;
+  padding: 0.25rem 0.25rem 0.25rem 0.5rem;
+  background-color: $background-color;
+  color: $text-color;
+  margin-bottom: 0.5rem;
+  box-shadow: $box-shadow;
+}
+
+.select-menu {
+  max-height: 0px;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  background-color: $background-color;
+  color: $text-color;
+  box-shadow: $box-shadow;
+  &.open {
+    max-height: 100%;
+  }
+}
+
+.select-menu-item {
+  font-size: 1rem;
+  padding: 0.75rem 0.5rem;
+  margin: 0.5rem 0.5rem;
+  border-radius: 0.25rem;
+  &.selected {
+    color: $primary-color;
+    font-weight: bold;
+    background-color: $third-color;
+  }
+
+  &:hover {
+    background-color: $hover-background-color;
+  }
+}
+
+.select-arrow {
+  fill: $primary-color;
+  position: absolute;
+  right: 0.3rem;
+  &.open {
+    rotate: -180deg;
+    transition: 0.4s;
+    margin-right: 0.3rem;
+    opacity: 0;
+    scale: 0;
+  }
+
+  &.close {
+    rotate: 0deg;
+    transition: 0.4s;
+    margin-right: 0.3rem;
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+.select-closed {
+  fill: $primary-color;
+  position: absolute;
+  right: 0.3rem;
+  &.open {
+    rotate: 0deg;
+    transition: 0.4s;
+    opacity: 1;
+    scale: 1;
+  }
+
+  &.close {
+    rotate: -180deg;
+    transition: 0.4s;
+    opacity: 0;
+    scale: 0;
+  }
+}
