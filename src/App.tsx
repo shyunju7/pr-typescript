@@ -1,10 +1,23 @@
-import Image from "./assets/img-mong.png";
+import Select from "./components/Select";
+export interface Option {
+  text: string;
+  value: string;
+}
+const data: Option[] = [
+  {
+    text: "아메리카노",
+    value: "americano",
+  },
+  {
+    text: "카페라떼",
+    value: "latte",
+  },
+  {
+    text: "에스프레소",
+    value: "espresso",
+  },
+];
 const App = () => {
-  return (
-    <div>
-      <h1>Hello!</h1>
-      <img src={Image} alt="몽이 이미지" width="200" />
-    </div>
-  );
+  return <Select data={data} />;
 };
 export default App;
