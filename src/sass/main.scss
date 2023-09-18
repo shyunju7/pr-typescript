@@ -1,2 +1,15 @@
 @import "base/reset";
 @import "base/typography";
+@import "abstracts/variables";
+
+body {
+  margin: 0;
+}
+#root {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background-color: $app-background-color;
+}
