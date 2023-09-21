@@ -1,4 +1,5 @@
 import Select from "./components/Select";
+import Sidebar from "./components/Sidebar";
 export interface Option {
   text: string;
   value: string;
@@ -18,6 +19,13 @@ const data: Option[] = [
   },
 ];
 const App = () => {
-  return <Select data={data} />;
+  return (
+    <div id="app-container">
+      <Sidebar />
+      <main>
+        <Select data={data} />
+      </main>
+    </div>
+  );
 };
 export default App;
