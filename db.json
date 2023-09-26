@@ -1,0 +1,16 @@
+{
+  "chapter": [
+    {
+      "id": 1,
+      "name": "select",
+      "parentId": 0,
+      "subChapter": []
+    },
+    {
+      "id": 2,
+      "name": "checkbox select",
+      "parentId": 1,
+      "subChapter": []
+    }
+  ]
+}
