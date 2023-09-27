@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import classNames from "classnames";
 import "./select.scss";
-import { Option } from "@src/App";
-import Arrow from "../../assets/ic-arrow.svg";
-import Close from "../../assets/ic-close.svg";
+import { Option } from "@src/pages/Home";
 
 interface SelectProps {
   data: Option[];

@@ -52,8 +52,9 @@
   background-color: #3c3a48;
 }
 
-.sidebar button span:nth-child(2) {
-  flex: 1 1 auto;
+.sidebar button span:nth-child(3) {
+  position: absolute;
+  right: 1.5rem;
 }
 
 // 아이콘 회전
