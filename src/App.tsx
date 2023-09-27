@@ -2,7 +2,7 @@ import Router from "./Router";
 
 const App = () => {
   return (
-    <div id="app-container">
+    <div>
       <Router />
     </div>
   );

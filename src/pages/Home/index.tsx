@@ -1,9 +1,10 @@
 import { Option } from "@src/types/select";
-import { homeApi } from "../apis";
-import Select from "../components/Select";
-import Sidebar from "../components/Sidebar";
+import { homeApi } from "../../apis";
+import Select from "../../components/Select";
+import Sidebar from "../../components/Sidebar";
 import * as React from "react";
 import { Chapter } from "@src/types/chapter";
+import "./style.scss";
 
 const data: Option[] = [
   {
@@ -21,7 +22,7 @@ const data: Option[] = [
 ];
 
 const Home = () => {
-  const [isOpenSidebar, setOpenSidebar] = React.useState<boolean>(false);
+  const [isOpenSidebar, setOpenSidebar] = React.useState<boolean>(true);
   const [chapters, setChapters] = React.useState<Chapter[]>([]);
   const handleGetChapters = async () => {
     try {
@@ -35,7 +36,7 @@ const Home = () => {
     handleGetChapters();
   }, []);
   return (
-    <div>
+    <div id="home-container">
       {isOpenSidebar ? (
         <Sidebar chapters={chapters} />
       ) : (
