@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import classNames from "classnames";
 import "./select.scss";
-import { Option } from "@src/pages/Home";
+import { Option } from "@src/types/select";
 
 interface SelectProps {
   data: Option[];

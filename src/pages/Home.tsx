@@ -1,18 +1,10 @@
+import { Option } from "@src/types/select";
 import { homeApi } from "../apis";
 import Select from "../components/Select";
 import Sidebar from "../components/Sidebar";
 import * as React from "react";
+import { Chapter } from "@src/types/chapter";
 
-export interface Option {
-  text: string;
-  value: string;
-}
-export interface Chapter {
-  id: number;
-  name: string;
-  parentId: number;
-  subChapter: Chapter[];
-}
 const data: Option[] = [
   {
     text: "아메리카노",

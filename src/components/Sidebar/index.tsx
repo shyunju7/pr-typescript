@@ -1,6 +1,7 @@
 import * as React from "react";
 import "./sidebar.scss";
-import { Chapter } from "@src/pages/Home";
+import { Chapter } from "@src/types/chapter";
+
 interface SidebarProps {
   chapters: Chapter[];
 }
