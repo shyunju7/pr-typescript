@@ -1,15 +1,31 @@
 {
   "chapter": [
     {
-      "id": 1,
+      "id": "A100",
       "name": "select",
-      "parentId": 0,
-      "subChapter": []
+      "parentId": "A1",
+      "subChapter": [
+        {
+          "id": "A101",
+          "name": "default select",
+          "parentId": "A100"
+        },
+        {
+          "id": "A102",
+          "name": "checkbox select",
+          "parentId": "A100"
+        },
+        {
+          "id": "A103",
+          "name": "input select",
+          "parentId": "A100"
+        }
+      ]
     },
     {
-      "id": 2,
-      "name": "checkbox select",
-      "parentId": 1,
+      "id": "B200",
+      "name": "input",
+      "parentId": "B1",
       "subChapter": []
     }
   ]
