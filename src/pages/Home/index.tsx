@@ -1,17 +1,17 @@
-import { Option } from "@src/types/select";
-import { homeApi } from "../../apis";
-import Sidebar from "../../components/Sidebar";
 import * as React from "react";
+import { useLocation } from "react-router-dom";
+import Sidebar from "../../components/Sidebar";
 import { Chapter } from "@src/types/chapter";
+import ChapterDetails from "../ChapterDetails";
+import { homeApi } from "../../apis";
 import "./style.scss";
-import { useLocation, useParams } from "react-router-dom";
-import Details from "../ChapterDetails";
+import About from "../About";
 
 const Home = () => {
   const [isOpenSidebar, setOpenSidebar] = React.useState<boolean>(true);
   const [chapters, setChapters] = React.useState<Chapter[]>([]);
-  const params = useParams();
   const location = useLocation();
+  const pathname = location.pathname;
   const handleGetChapters = async () => {
     try {
       const { data } = await homeApi.getAllChapters();
@@ -24,7 +24,12 @@ const Home = () => {
     handleGetChapters();
   }, []);
 
-  console.log(location);
+  const handleMainComponent = (): React.ReactNode => {
+    console.log(pathname);
+    if (pathname === "/") return <div>Intro Page</div>;
+    else if (pathname.includes("/chapters")) return <ChapterDetails />;
+    else return <About />;
+  };
 
   return (
     <div id="home-container">
@@ -33,8 +38,7 @@ const Home = () => {
       ) : (
         <button onClick={() => setOpenSidebar((prev) => !prev)}>버튼</button>
       )}
-
-      <main>{location.pathname === "/" ? <div>HOME</div> : <Details />}</main>
+      <main>{handleMainComponent()}</main>
     </div>
   );
 };
