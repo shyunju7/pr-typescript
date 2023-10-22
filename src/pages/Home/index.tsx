@@ -1,29 +1,17 @@
 import { Option } from "@src/types/select";
 import { homeApi } from "../../apis";
-import Select from "../../components/Select";
 import Sidebar from "../../components/Sidebar";
 import * as React from "react";
 import { Chapter } from "@src/types/chapter";
 import "./style.scss";
-
-const data: Option[] = [
-  {
-    text: "아메리카노",
-    value: "americano",
-  },
-  {
-    text: "카페라떼",
-    value: "latte",
-  },
-  {
-    text: "에스프레소",
-    value: "espresso",
-  },
-];
+import { useLocation, useParams } from "react-router-dom";
+import Details from "../ChapterDetails";
 
 const Home = () => {
   const [isOpenSidebar, setOpenSidebar] = React.useState<boolean>(true);
   const [chapters, setChapters] = React.useState<Chapter[]>([]);
+  const params = useParams();
+  const location = useLocation();
   const handleGetChapters = async () => {
     try {
       const { data } = await homeApi.getAllChapters();
@@ -35,6 +23,9 @@ const Home = () => {
   React.useEffect(() => {
     handleGetChapters();
   }, []);
+
+  console.log(location);
+
   return (
     <div id="home-container">
       {isOpenSidebar ? (
@@ -43,9 +34,7 @@ const Home = () => {
         <button onClick={() => setOpenSidebar((prev) => !prev)}>버튼</button>
       )}
 
-      <main>
-        <Select data={data} />
-      </main>
+      <main>{location.pathname === "/" ? <div>HOME</div> : <Details />}</main>
     </div>
   );
 };
