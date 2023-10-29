@@ -6,6 +6,7 @@ import ChapterDetails from "../ChapterDetails";
 import { homeApi } from "../../apis";
 import "./style.scss";
 import About from "../About";
+import SVG from "../../components/SVG";
 
 const Home = () => {
   const [isOpenSidebar, setOpenSidebar] = React.useState<boolean>(true);
@@ -25,8 +26,12 @@ const Home = () => {
   }, []);
 
   const handleMainComponent = (): React.ReactNode => {
-    console.log(pathname);
-    if (pathname === "/") return <div>Intro Page</div>;
+    if (pathname === "/")
+      return (
+        <div>
+          <SVG />{" "}
+        </div>
+      );
     else if (pathname.includes("/chapters")) return <ChapterDetails />;
     else return <About />;
   };
