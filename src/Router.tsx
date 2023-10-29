@@ -6,7 +6,7 @@ import {
   useParams,
 } from "react-router-dom";
 import About from "./pages/About";
-import Home from "./pages/Home";
+import Home from "./pages/Home";
 import ChapterDetails from "./pages/ChapterDetails";
 const Router = () => {
   return (
