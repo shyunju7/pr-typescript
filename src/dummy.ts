@@ -1,1 +1,6 @@
-export const canvasColorData: string[] = ["black", "red", "yellow", "green"];
+export const canvasColorData: string[] = [
+  "#000000",
+  "#ff0000",
+  "#fffb00",
+  "#039e00",
+];
