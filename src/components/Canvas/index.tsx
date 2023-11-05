@@ -85,11 +85,20 @@ const Canvas = () => {
       <div className="color-wrapper">
         {canvasColorData &&
           canvasColorData.map((color: string) => (
-            <button key={color} data-color={color} onClick={handleSetPenColor}>
-              {color}
-            </button>
+            <button
+              key={color}
+              className="color-btn"
+              data-color={color}
+              onClick={handleSetPenColor}
+              style={{ backgroundColor: color }}
+            />
           ))}
-        <input type="color" value={color} onChange={handleOnChangeColor} />
+        <input
+          className="color-picker"
+          type="color"
+          value={color}
+          onChange={handleOnChangeColor}
+        />
       </div>
     </div>
   );
