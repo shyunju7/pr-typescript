@@ -26,9 +26,7 @@ const Canvas = () => {
     ctx.strokeStyle = "black";
   };
 
-  const handlePointerDown = () => {
-    isDragging = true;
-  };
+  const handlePointerDown = () => (isDragging = true);
   const handlePointerUp = () => (isDragging = false);
   const handlePointerDrag = (e: PointerEvent) => {
     const { offsetX, offsetY } = e;
@@ -37,10 +35,10 @@ const Canvas = () => {
     if (!isDragging) {
       ctx.beginPath();
       ctx.moveTo(offsetX, offsetY);
-    } else {
-      ctx.lineTo(offsetX, offsetY);
-      ctx.stroke();
+      return;
     }
+    ctx.lineTo(offsetX, offsetY);
+    ctx.stroke();
   };
 
   useEffect(() => {
