@@ -1,10 +1,11 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./style.scss";
 import { canvasColorData } from "../../dummy";
 const Canvas = () => {
   const CANVAS_WIDTH = 1024;
   const CANVAS_HEIGHT = 668;
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [color, setColor] = useState("#000000");
 
   let ctx: CanvasRenderingContext2D | null;
   let isDragging = false;
@@ -25,7 +26,7 @@ const Canvas = () => {
     if (!ctx) return;
     ctx.lineWidth = 20;
     ctx.lineCap = "round";
-    ctx.strokeStyle = "black";
+    ctx.strokeStyle = color;
   };
 
   const handlePointerDown = () => (isDragging = true);
@@ -44,11 +45,15 @@ const Canvas = () => {
   };
 
   const handleSetPenColor = (e: React.MouseEvent<HTMLButtonElement>) => {
-    if (!ctx) return;
-
     const target = e.target as HTMLButtonElement;
-    const color = target.dataset.color;
-    ctx.strokeStyle = color ?? "black";
+    const _color = target.dataset.color;
+    setColor(_color ?? "#000000");
+  };
+
+  const handleOnChangeColor = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (!ctx) return;
+    const { value } = e.target;
+    setColor(value);
   };
 
   useEffect(() => {
@@ -61,6 +66,11 @@ const Canvas = () => {
       canvas.removeEventListener("pointermove", handlePointerDrag);
     };
   }, []);
+
+  useEffect(() => {
+    if (!ctx) return;
+    ctx.strokeStyle = color;
+  }, [color]);
 
   init();
 
@@ -79,6 +89,7 @@ const Canvas = () => {
               {color}
             </button>
           ))}
+        <input type="color" value={color} onChange={handleOnChangeColor} />
       </div>
     </div>
   );
